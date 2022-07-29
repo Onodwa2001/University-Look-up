@@ -31,3 +31,16 @@ footer {
     margin-top: 50px;
     text-align: center;
 }
+
+[id="spinner"] {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    display: flex;
+    /* position: fixed; */
+}
+
+[id="spinner"] h4 {
+    padding-right: 20px;
+}

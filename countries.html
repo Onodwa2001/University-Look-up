@@ -48,51 +48,60 @@
     </header>
 
     <main>
-        
-        <h1>University Website</h1>
 
-        <div class="cards">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="images/buildingjpg.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">Browse Countries</h5>
-                  <p class="card-text">There are over 200 contries you can search for. Click here to see them.</p>
-                  <a href="countries.html" class="btn btn-primary">Browse</a>
-                </div>
-            </div>
-    
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="images/graduate.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">Find all Universities in specified country</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="search.html" class="btn btn-primary">Find</a>
-                </div>
-            </div>
-            
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="images/job.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-            
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="images/job.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
+        <h1 id="see-all-heading" style="display: none;">See all the countries you can search for</h1>
+
+        <div id="spinner">
+            <h4>Getting data, please be patient</h4>
+            <div class="spinner-border" role="status">
+                <span class="sr-only">Loading...</span>
             </div>
         </div>
-        
+
+        <div class="cards" id="countries">
+            <!-- All the countries to be listed here -->
+        </div>
+
     </main>
 
     <footer>
         Copyrights Reserved &copy; | <script>document.write(new Date().getFullYear());</script>
     </footer>
+
+    <script>
+        let heading = document.getElementById('see-all-heading');
+        let countryCard = document.getElementById('countries');
+        let countries = [];
+
+        let render_data = (data) => {
+            data.forEach(element => {
+                countries.push(element.country);
+            });
+
+            let unique = [...new Set(countries)];
+
+            unique.forEach(element => {
+                countryCard.innerHTML += 
+                    `<div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                        <h5 class="card-title">${element}</h5>
+                        </div>
+                    </div>`;
+            });
+        }
+
+        let endpoint = `http://universities.hipolabs.com/search`;
+
+        fetch(endpoint, {
+            method: 'GET'
+        })
+            .then((result) => result.json())
+            .then((data) => {
+                render_data(data);
+                document.getElementById('spinner').style.display = 'none';
+                heading.style.display = 'block';
+            })
+            .catch((err) => console.log(err));
+    </script>
 </body>
 </html>

@@ -21,6 +21,7 @@ let render_data = (data) => {
             </tr>`;
         }
     }
+
 }
 
 document.getElementById('submit').addEventListener('click', (e) => {
@@ -48,22 +49,34 @@ document.getElementById('submit').addEventListener('click', (e) => {
 });
 
 
-// const encodedParams = new URLSearchParams();
-// encodedParams.append("body", "<REQUIRED>");
-// encodedParams.append("accessToken", "<REQUIRED>");
-// encodedParams.append("title", "<REQUIRED>");
 
-// const options = {
-// 	method: 'POST',
-// 	headers: {
-// 		'content-type': 'application/x-www-form-urlencoded',
-// 		'X-RapidAPI-Key': '8bd90c4cffmsh2788964981ec641p113417jsn3d0aff3880f5',
-// 		'X-RapidAPI-Host': 'Anilistmikilior1V1.p.rapidapi.com'
-// 	},
-// 	body: encodedParams
-// };
+// fetch('http://universities.hipolabs.com/search', {
+//     method: 'GET'
+// })
+//     .then((result) => result.json())
+//     .then((data) => {
+        
 
-// fetch('https://anilistmikilior1v1.p.rapidapi.com/createThread', options)
-// 	.then(response => response.json())
-// 	.then(response => console.log(response))
-// 	.catch(err => console.error(err));
+//         console.log(countries);
+//         console.log(unique);
+//     })
+//     .catch((err) => console.log(err));
+
+
+// {/* <div class="card" style="width: 18rem;">
+//     <div class="card-body">
+//         <h5 class="card-title">Browse Countries</h5>
+//         <p class="card-text">There are over 200 contries you can search for. Click here to see them.</p>
+//         <a href="countries.html" class="btn btn-primary">Browse</a>
+//     </div>
+// </div> */}
+
+
+
+// let countryExists = (data) => {
+//     let exist = false;
+
+//     data.forEach((element) => {
+//         if (element)
+//     });
+// }
