@@ -50,33 +50,17 @@ document.getElementById('submit').addEventListener('click', (e) => {
 
 
 
-// fetch('http://universities.hipolabs.com/search', {
-//     method: 'GET'
-// })
-//     .then((result) => result.json())
-//     .then((data) => {
-        
+// MUSIC API
 
-//         console.log(countries);
-//         console.log(unique);
-//     })
-//     .catch((err) => console.log(err));
+// const options = {
+// 	method: 'GET',
+// 	headers: {
+// 		'X-RapidAPI-Key': '8bd90c4cffmsh2788964981ec641p113417jsn3d0aff3880f5',
+// 		'X-RapidAPI-Host': 'shazam.p.rapidapi.com'
+// 	}
+// };
 
-
-// {/* <div class="card" style="width: 18rem;">
-//     <div class="card-body">
-//         <h5 class="card-title">Browse Countries</h5>
-//         <p class="card-text">There are over 200 contries you can search for. Click here to see them.</p>
-//         <a href="countries.html" class="btn btn-primary">Browse</a>
-//     </div>
-// </div> */}
-
-
-
-// let countryExists = (data) => {
-//     let exist = false;
-
-//     data.forEach((element) => {
-//         if (element)
-//     });
-// }
+// fetch('https://shazam.p.rapidapi.com/search?term=kiss%20the%20rain&locale=en-US&offset=0&limit=5', options)
+// 	.then(response => response.json())
+// 	.then(response => console.log(response))
+// 	.catch(err => console.error(err));
